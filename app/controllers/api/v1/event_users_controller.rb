@@ -22,6 +22,17 @@ class Api::V1::EventUsersController < ApplicationController
         end
     end
 
+    # PUT /event_users/:id
+    def update
+        @event_user = EventUser.find(params[:id])
+        if @event_user
+            @event_user.update(event_user_params)
+            render json: { message: 'Updated EventUser' }, status: 200
+        else
+            render json: { error: 'Could not update EventUser' }, status: 400
+        end
+    end
+
     # DELETE /event_users/:id
     def destroy
         @event_user = EventUser.find(params[:id])

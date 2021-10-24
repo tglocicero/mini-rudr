@@ -12,30 +12,30 @@
 
 ActiveRecord::Schema.define(version: 2021_10_24_194621) do
 
-    # These are extensions that must be enabled in order to support this database
-    enable_extension "plpgsql"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-    create_table "event_users", force: :cascade do |t|
-        t.integer "user_id"
-        t.integer "event_id"
-        t.integer "response"
-        t.boolean "present", default: true, null: false
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-    end
+  create_table "event_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.integer "response", default: 0
+    t.boolean "present", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
-    create_table "events", force: :cascade do |t|
-        t.string "name"
-        t.integer "time", default: 1
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-    end
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.integer "time", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
-    create_table "users", force: :cascade do |t|
-        t.string "name"
-        t.integer "score"
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-    end
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
