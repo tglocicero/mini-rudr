@@ -75,8 +75,8 @@ curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: applicati
 
 And here are more calls to help flesh out the database for other users.
 ```
-curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":2, "event_id":1, "response":"declined"}'
-curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":2, "event_id":2, "response":"declined"}'
+curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":2, "event_id":1, "response":"declined","present":false}'
+curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":2, "event_id":2, "response":"declined","present":false}'
 curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":2, "event_id":3, "response":"accepted"}'
 
 curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":3, "event_id":1, "response":"accepted"}'
