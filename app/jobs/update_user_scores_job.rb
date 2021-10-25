@@ -3,7 +3,7 @@ class UpdateUserScoresJob < ActiveJob::Base
 
     def perform(event)
         event.users.each do |user|
-            user.calculate_score
+            user.adjust_score(event.id)
         end
     end
 end

@@ -27,7 +27,7 @@ class Api::V1::EventsController < ApplicationController
         @event = Event.find(params[:id])
         if @event
             @event.update(event_update_params)
-            UpdateUserScoresJob.perform_later(@event)
+            UpdateUserScoresJob.perform_later(@event) if @event.time == "past"
             render json: @event
         else
             render json: { error: "Could not update Event" }, status: 400
