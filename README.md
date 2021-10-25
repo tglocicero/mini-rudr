@@ -70,7 +70,7 @@ This group of calls represents the activity of user 1, as they are invited to an
 curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":1, "event_id":1}'
 curl -X PUT localhost:3000/api/v1/event_users/1 --header "Content-Type: application/json" --data '{"response":"accepted"}'
 curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":1, "event_id":2, "response":"accepted"}'
-curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":1, "event_id":3, "response":"ignored"}'
+curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: application/json" --data '{"user_id":1, "event_id":3, "response":"ignored", "present":false}'
 ```
 
 And here are more calls to help flesh out the database for other users.
