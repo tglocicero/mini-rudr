@@ -47,6 +47,6 @@ class Api::V1::EventUsersController < ApplicationController
     private
 
     def event_user_params
-        params.require(:event_user).permit(:event_id, :user_id, :response, :present?)
+        params.require(:event_user).permit(:event_id, :user_id, :response, :present)
     end
 end

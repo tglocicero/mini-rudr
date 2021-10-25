@@ -7,7 +7,7 @@ class User < ApplicationRecord
         accepted_invitations = invitations.accepted.count
         declined_invitations = invitations.declined.count
         ignored_invitations = invitations.ignored.count
-        non_declined_invitation_absences = invitations.not_declined.where("present = ?", false).count
+        non_declined_invitation_absences = EventUser.where(id: self.events.past.pluck(:id), user_id: self.id).not_declined.where(present: false).count
         self.score = invitations.count + accepted_invitations - declined_invitations - (2 * ignored_invitations) - (3 * non_declined_invitation_absences)
         self.save
     end
