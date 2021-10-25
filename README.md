@@ -2,6 +2,8 @@
 
 The required endpoints for this assignment only deal with getting User information, but have nothing to do with setting up all of the things that the User information is based on. I made a couple extra endpoints that you can use to setup some dummy data in the DB, so you can simulate events being created, users being invited to those events, and the events coming and passing.
 
+You may find it odd that the time of my events is represented as an enum [past, future]. I made this decision because I think setting up actual timestamps and waiting for them to pass in real time would be annoying for whoever evaluates this assignment. Instead an event is either in the past or it is in the future. An Event starts out being scheduled for the future and can be moved to the past with an API call. 
+
 I time blocked this project and didn't have time to write tests. I know some people are test driven and write their tests first, and then write code to satisfy those tests laster, but that's not my style. I still believe in writing rspecs though. I just had to stop working on this at some point.
 
 ## The Database
