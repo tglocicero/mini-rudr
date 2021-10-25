@@ -85,35 +85,35 @@ curl -X POST localhost:3000/api/v1/event_users --header "Content-Type: applicati
 ```
 
 #### 4. Finally, you can test the calls specced out in the assignment PDF
-First, if you get a list of Users, you'll notice that none of them have scores.
+First, if you get a list of Users, you'll see that their scores are all equal to 3 (the number of invitations they have).
 ```
 curl -u user:pass http://localhost:3000/api/v1/users
 [
   {
     id: 1,
     name: "Tucker",
-    score: null,
+    score: 3,
     created_at: "2021-10-24T23:28:58.269Z",
     updated_at: "2021-10-24T23:28:58.269Z"
   },
   {
     id: 2,
     name: "Adam",
-    score: null,
+    score: 3,
     created_at: "2021-10-24T23:41:09.727Z",
     updated_at: "2021-10-24T23:41:09.727Z"
   },
   {
     id: 3,
     name: "Houston",
-    score: null,
+    score: 3,
     created_at: "2021-10-24T23:41:11.968Z",
     updated_at: "2021-10-24T23:41:11.968Z"
   }
 ]
 ```
 
-This is because no events have passed yet. I did not default scores to 0. Instead they are null until an Event that the user was invited to has passed. This is a convenient way to tell if a User is brand new or not, plus it might help in cleaning up the DB later. If a user has a null score for 90 days, maybe they should be cleaned up by some background job.
+This is because no events have passed yet. When an event is passed (moved from the future to the past), we will know if the user actually accepted, declined, or ignored the invitation, and we will know if they were present or not. At that point we can increment or decrement their score.
 
 Here's how you can pass some events ("pass" as in, move an event from the future, to the past). 
 ```
