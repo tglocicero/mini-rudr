@@ -38,7 +38,7 @@ This is a joining table for Events and Users. It's basically a guest list. Users
 
 - Clone it, and then navigate to the project directory where you can `rake db:setup` and `rake db:migrate`
 - Run the rails server locally with `rails s`
-- Make a few API calls to the local service to fill the DB with dummy data (I guess I could have written a script for this, but I felt fleshing out the API was a better use of my time. We can talk about why)
+- Make a few API calls to the local service to fill the DB with dummy data (I guess I could have written a script for this, but I felt fleshing out the API was a better use of my time)
 - Finally, pass some events via API (more about this later)
 - Get a list of Users via API
 - Return the score of one User via API
